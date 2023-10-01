@@ -1,7 +1,9 @@
 'use client'
+import ImageUpload from "@/components/input/ImageUpload"
 import Input from "@/components/input/Input"
-import { useRouter } from "next/router"
-import { useState } from "react"
+import axios from "axios"
+import { ChangeEvent, FormEvent, useState } from "react"
+import { useRouter } from "next/navigation"
 
 interface InitialStateProps {
     name:string,
@@ -19,10 +21,36 @@ export default function page() {
     const [state, setState] = useState(initialState)
     const router = useRouter()
 
+    const setCustomValue = (id:any, value:any) => {
+        setState((prevValues) => ({
+            ...prevValues,
+            [id]: value,
+        })) 
+    }
+    function handleChange(event:ChangeEvent<HTMLInputElement>) {
+        setState({ ...state, [event.target.name]: event.target.value })
+    }
+
+    const onSubmit = (event:FormEvent) => {
+
+        event.preventDefault()
+
+        axios.post('/api/blogs',state)
+        .then(() => {
+            router.push('/')
+            // router.push('/')
+        })
+
+        .catch((err) => {
+            throw new Error(err)
+        })
+        router.refresh()
+    }
+
     return (
-        <form>
+        <form onSubmit={onSubmit} className="w-[600px] h-[700px] mx-auto py-12">
             <div>
-                <ImageUpload/>
+                <ImageUpload value={state.imageSrc} onChange={(value) => setCustomValue('imageSrc',value)}/>
             </div>
 
             <div  className='flex flex-col justify-center h-[450px] w-[350px] mx-auto gap-2'>
