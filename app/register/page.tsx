@@ -53,11 +53,12 @@ export default function page() {
         <Input placeholder='Name' id='name' type='text' name='name' onChange={handleChange} value={state.name}/>
         <Input placeholder='Email' id='email' type='email' name='email' onChange={handleChange} value={state.email}/>
         <Input placeholder='Password' id='password' type='password' name='password' onChange={handleChange} value={state.password}/>
-        <button type='submit'>Submit</button>
+        <button type='submit' className='bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>Submit</button>
         </div>
 
         <div>
-          <div>Do you have an account ? <Link href='/login'>Sign in</Link></div>
+          <div className='text-center mt-8'>Do you have an account ? 
+            <Link href='/login' className='text-indigo-500 font-semibold hover:underline'>Sign in</Link></div>
         </div>
     </form>
   )

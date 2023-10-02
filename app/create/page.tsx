@@ -53,13 +53,11 @@ export default function page() {
                 <ImageUpload value={state.imageSrc} onChange={(value) => setCustomValue('imageSrc',value)}/>
             </div>
 
-            <div  className='flex flex-col justify-center h-[450px] w-[350px] mx-auto gap-2'>
-        <Input placeholder='Blog header' id='name' type='text' value={state.name} name='name' onChange={handleChange}/>
-        <Input big placeholder='Blog content or description' id='description' type='text' value={state.description} name='description' onChange={handleChange}/>
-        <div> 
-        </div>
-        <button type='submit'>Submit</button>
-        </div>
+            <div  className='flex flex-col justify-center h-[450px] w-[350px] mx-auto gap-2'>  
+              <Input placeholder='Blog Header' id='name' type='text' value={state.name} name='name' onChange={handleChange}/>
+              <Input big placeholder='Blog Desciption' id='description' type='text' value={state.description} name='description' onChange={handleChange}/>
+              <button type='submit' className='bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>Submit</button>
+            </div>
         </form>
     )
 }

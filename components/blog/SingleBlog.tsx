@@ -32,14 +32,14 @@ export default function SingleBlog({data, key, currentUser}: BlogProps) {
       }
 
     return (
-        <div className="w-[1100px] border-2 p-4">
+        <div className="w-[1100px] p-4 mt-2 border-2">
             <div>
             <div className="flex gap-2 justify-between items-center">
                 <Image width={400} className="w-[500px] object-contain" height={300} src={data.imageSrc} alt="Blog Image" />
 
                 <div className="w-[530px] flex flex-col gap-4 leading-[1.5]">
-                <h1>{data.name}</h1>
-                <p>{data.description}</p>
+                <h1 className="text-3xl font-bold text-red-700 mb-6">{data.name}</h1>
+                <p className="font-bold text-gray-700">{data.description}</p>
                 </div>
             </div>
         

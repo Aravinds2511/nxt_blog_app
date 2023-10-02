@@ -55,11 +55,13 @@ export default function page() {
         <div className='flex flex-col justify-center h-[450px] w-[350px] mx-auto gap-2'>
         <Input placeholder='Email' id='email' type='email' name='email' onChange={handleChange} value={state.email}/>
         <Input placeholder='Password' id='password' type='password' name='password' onChange={handleChange} value={state.password}/>
-        <button type='submit'>Submit</button>
+        <button type='submit' className='bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>Submit</button>
         </div>
 
         <div>
-          <div>Haven't got an accont ? <Link href='/register'>Register</Link></div>
+          <div className='text-center mt-8'>
+            Haven't got an accont ? 
+            <Link href='/register' className='text-indigo-500 font-semibold hover:underline'>Register</Link></div>
         </div>
     </form>
   )
